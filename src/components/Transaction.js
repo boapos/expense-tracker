@@ -14,7 +14,7 @@ const Transaction = ({ transaction }) => {
         {transaction.text}
       </div>
       
-      <span>{sign}&#8369;{Math.abs(transaction.amount).toLocaleString()}</span>
+      <span>{sign}&#8369;{Math.abs(transaction.amount).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span>
       {/* <button className="delete-btn" onClick={() => deleteTransaction(transaction.id)}>x</button> */}
       
     </li>

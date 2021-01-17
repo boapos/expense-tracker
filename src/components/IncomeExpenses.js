@@ -10,22 +10,20 @@ const IncomeExpenses = () => {
   const income = amounts
     .filter(item => item > 0)
     .reduce((acc, item) => acc + item, 0)
-    .toFixed(2)
   
   const expense = amounts
     .filter(item => item < 0)
-    .reduce((acc, item) => acc + item, 0)
-    .toFixed(2)
+    .reduce((acc, item) => acc + item, 0)*-1
 
   return (
     <div className="inc-exp-container">
       <div>
         <h4>Income</h4>
-        <p className="money plus">&#8369;{income.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+        <p className="money plus">&#8369;{income.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
       </div>
       <div>
         <h4>Expense</h4>
-        <p className="money minus">&#8369;{Math.abs(expense).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }</p>
+        <p className="money minus">&#8369;{expense.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }</p>
       </div>
     </div>
   )

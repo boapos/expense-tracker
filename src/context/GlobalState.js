@@ -1,14 +1,8 @@
 import React, { createContext, useReducer, useEffect } from 'react'
-import AppReducer from './AppReducer'
 
 // init state
 const initialState =  {
-  transactions: [
-    // { id: 1, text: 'Flower', amount: -20 },
-    // { id: 3, text: 'Book', amount: -10 },
-    // { id: 2, text: 'Salary', amount: 300 },
-    // { id: 4, text: 'Camera', amount: 150 }
-  ]
+  transactions: []
 }
 
 // create context
@@ -16,6 +10,19 @@ export const GlobalContext = createContext()
 
 // provider component
 export const GlobalProvider = ({ children }) => {
+
+  const AppReducer = (state, action) => {
+    switch(action.type) {
+      case 'DELETE_TRANSACTION':
+        return { ...state, transactions: state.transactions.filter(transaction => transaction.id !== action.payload) }
+      case 'ADD_TRANSACTION':
+        return {...state, transactions: [...state.transactions, action.payload]}
+      case 'RETRIEVE_TRANSACTIONS':
+        return {...state, transactions: action.payload}
+      default:
+        return state;
+    }
+  }
 
   const [state, dispatch] = useReducer(AppReducer, initialState)
   
