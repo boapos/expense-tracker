@@ -9,7 +9,14 @@ const Transaction = ({ transaction }) => {
 
   return (
     <li className={transaction.amount < 0 ? 'minus' : 'plus'}>
-      {transaction.text} <span>{sign}&#8369;{Math.abs(transaction.amount).toLocaleString()}</span><button className="delete-btn" onClick={() => deleteTransaction(transaction.id)}>x</button>
+      <div>
+        <i className="fas fa-times-circle delete-btn" onClick={() => deleteTransaction(transaction.id)} />
+        {transaction.text}
+      </div>
+      
+      <span>{sign}&#8369;{Math.abs(transaction.amount).toLocaleString()}</span>
+      {/* <button className="delete-btn" onClick={() => deleteTransaction(transaction.id)}>x</button> */}
+      
     </li>
   )
 }

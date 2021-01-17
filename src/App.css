@@ -21,7 +21,7 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 350px;
+  width: 400px;
 }
 
 h1 {
@@ -89,7 +89,7 @@ input[type="number"] {
 
 .btn {
   cursor: pointer;
-  background-color: #9c88ff;
+  background-color: #7d5fff;
   box-shadow: var(--box-shadow);
   color: #fff;
   border: 0;
@@ -117,9 +117,15 @@ input[type="number"] {
   color: #333;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: relative;
   padding: 10px;
   margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+li div {
+  overflow: hidden;
 }
 
 .list li.plus {
@@ -132,22 +138,11 @@ input[type="number"] {
 
 .delete-btn {
   cursor: pointer;
-  background-color: #e74c3c;
-  border: 0;
-  color: #fff;
-  font-size: 20px;
-  line-height: 20px;
-  padding: 2px 5px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-100%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  margin-right: 6px;
 }
 
-.list li:hover .delete-btn {
-  opacity: 1;
+.delete-btn:hover {
+  opacity: 0.7;
 }
 
 @media (max-width: 320px) {

@@ -4,7 +4,7 @@ import { GlobalContext } from '../context/GlobalState'
 const AddTransaction = () => {
   
   const [text, setText] = useState('')
-  const [amount, setAmount] = useState(null)
+  const [amount, setAmount] = useState('')
   const { addTransaction } = useContext(GlobalContext)
 
   const onSubmit = e => {
@@ -16,12 +16,13 @@ const AddTransaction = () => {
       amount: +amount
     }
 
-    if(text === null || amount === 0 || amount === '') {
+    if(text === '' || amount === 0 || amount === '') {
       alert('Fill-in all fields.')
     } else {
       addTransaction(newTransaction) 
       setText('')
-      setAmount('') 
+      setAmount('')
+      document.querySelector('input').focus() 
     }
   }
 
